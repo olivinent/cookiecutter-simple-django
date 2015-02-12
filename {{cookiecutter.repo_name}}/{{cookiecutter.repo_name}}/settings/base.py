@@ -58,7 +58,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-gb'
 
-TIME_ZONE = 'UTC'  # 'Europe/London'
+TIME_ZONE = 'UTC'
 
 USE_I18N = False
 
@@ -81,15 +81,3 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     root('templates'),
 )
-
-
-# .local.py overrides all the common settings.
-try:
-    from .local import *
-except ImportError:
-    pass
-
-
-# importing test settings file if necessary
-if len(sys.argv) > 1 and 'test' in sys.argv[1]:
-    from .testing import *
