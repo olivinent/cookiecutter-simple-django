@@ -1,6 +1,6 @@
 {
     "project_name": "My Awesome Project",
-    "repo_name":"{{ cookiecutter.project_name|replace(' ', '-') }}",
+    "repo_name":"{{ cookiecutter.project_name|lower|replace(' ', '-') }}",
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
