@@ -8,7 +8,7 @@ TEMPLATE_DEBUG = DEBUG
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = ['*']
 
 ADMINS = (
     ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
