@@ -11,7 +11,7 @@ sys.path.insert(0, root('apps'))
 
 # Application definition
 
-INSTALLED_APPS = (
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -20,9 +20,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles'
 )
 
+THIRD_PARTY_APPS = (
+    'compressor',
+)
+
 PROJECT_APPS = ()
 
-INSTALLED_APPS += PROJECT_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,6 +82,16 @@ STATICFILES_DIRS = (
     root('assets'),
 )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 TEMPLATE_DIRS = (
     root('templates'),
 )
+
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.template.TemplateFilter',
+]
