@@ -1,4 +1,7 @@
 -r base.txt
 
-mock
-model-mommy
+coverage
+django-libs
+django-nose
+factory-boy
+selenium

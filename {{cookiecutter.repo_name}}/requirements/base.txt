@@ -2,8 +2,11 @@
 # After the first "pip install -r", just run "pip freeze" and add the version
 # to each package in each requirements/*.txt.
 
-django
-
+Django>=1.7.4,<1.8
+django-compressor
 django-model-utils
-
+Pillow
 psycopg2
+
+# Code quality checker
+prospector
