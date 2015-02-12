@@ -1,0 +1,2 @@
+web: gunicorn --pythonpath="$PWD/{{cookiecutter.repo_name}}" wsgi:application --log-file -
+migrate: python manage.py migrate
