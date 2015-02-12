@@ -1,12 +1,6 @@
 from .base import *
 
 
-ADMINS = (
-    ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
-)
-
-MANAGERS = ADMINS
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
