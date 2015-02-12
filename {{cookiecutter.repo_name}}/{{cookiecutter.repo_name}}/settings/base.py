@@ -49,7 +49,7 @@ WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(PROJECT_ROOT, '{{cookiecutter.repo_name}}.db'),
+        'NAME': root('{{cookiecutter.repo_name}}.db'),
     }
 }
 
@@ -77,6 +77,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     root('assets'),
 )
+
+# Where collectstatic will collect static files for deployment
+STATIC_ROOT = root('collectstatic')
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
