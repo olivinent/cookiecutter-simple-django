@@ -22,6 +22,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'compressor',
+    'django_extensions',
 )
 
 PROJECT_APPS = ()

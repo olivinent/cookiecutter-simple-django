@@ -10,6 +10,8 @@ Description
 
 Lighter version of the Daniel Greenfeld's cookiecutter-django.
 
+Extended from Marco Fucci's fork.
+
 It uses the latest stable versions and it only defines a skeleton which can be extended as needed.
 
 Usage
@@ -18,7 +20,7 @@ Usage
 Let's pretend you want to create a Django project called "redditclone". Rather than using `startproject`
 and then editing the results to include your name, email, and various configuration issues that always get forgotten until the worst possible moment, get cookiecutter_ to do all the work.
 
-First, get cookiecutter. Trust me, it's awesome::
+First, get cookiecutter. Trust me, it's awesome.
 
 Set up your virtualenv::
 
@@ -28,10 +30,16 @@ Set up your virtualenv::
     $ source bin/activate
     $ pip install cookiecutter
 
+This is even easier with virtualenvwrapper::
+
+    $ mkvirtualenv redditclone
+    $ workon redditclone
+    $ pip install cookiecutter
+
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/marcofucci/cookiecutter-simple-django.git
+    $ cookiecutter  https://github.com/olivienent/cookiecutter-simple-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
@@ -46,12 +54,12 @@ It prompts you for questions. Answer them::
     remote: Total 443 (delta 196), reused 419 (delta 176)
     Receiving objects: 100% (443/443), 119.91 KiB | 0 bytes/s, done.
     Resolving deltas: 100% (196/196), done.
-    project_name (default is "project_name")? redditclone
-    repo_name (default is "repo_name")? redditclone
+    project_name (default is "My Awesome Project")? redditclone
+    repo_name (default is "my-awesome-project")? redditclone
     author_name (default is "Your Name")? Marco Fucci
     email (default is "Your email")? <your-email>
     description (default is "A short description of the project.")? A reddit clone
-    year (default is "Current year")? 2013
+    year (default is "2015")? 2015
     with_documentation (default is "yes")? yes
 
 If you are using cookiecutter < 0.7 and you answered *no* to *with_documentation*, you might want to delete the ``docs`` 
@@ -64,9 +72,8 @@ Create the database ``redditclone`` and then set up your project::
     $ cd redditclone/
     $ ls
     $ pip install -r requirements/local.txt
-    $ python ./manage.py syncdb
-    $ python ./manage.py migrate
-    $ python ./manage.py runserver
+    $ python manage.py migrate
+    $ python manage.py runserver
 
 and load localhost:8000/admin
 
@@ -76,7 +83,7 @@ Create a GitHub repo and push it there::
     $ git init
     $ git add .
     $ git commit -m "first awesome commit!"
-    $ git remote add origin git@github.com:marcofucci/redditclone.git
+    $ git remote add origin git@github.com:<your-github-username>/redditclone.git
     $ git push -u origin master
 
 **Note**: The ``requirements`` files don't define any package versions because it makes
@@ -87,7 +94,7 @@ versions installed so that they are not going to get updated without you knowing
 In order to do this, just activate your virtual environment, pip freeze it and
 update your requirements files::
 
-    $ activate <your-envs-folder>/redditclone/bin/activate
+    $ source <your-envs-folder>/redditclone/bin/activate
     $ pip freeze
     $ # now open requirements/* and note down the versions used.
 
@@ -105,22 +112,26 @@ If you need to add a dependency please choose the right file.
 
 **Settings**
 
-The ``settings`` folder contains a settings file for each environment and the ``local`` settings should be gitignored.
+The ``settings`` folder contains a settings file for each environment.
 
-If you take a look at ``base.py``, you'll see that it includes the optional module ``local.py``
-in the same folder. There you can override the local values and gitignore will
-exclude it from your commits.
-
-The ``testing.py`` module is loaded automatically after ``base.py`` and ``local.py`` every time you
-run ``python ./manage.py test``.
+If you take a look at ``base.py``, you'll see that it includes the optional module ``local.py`` in the same folder. 
 
 **Apps**
 
 The ``apps`` folder should contain all your local django apps, this is to keep
 the structure of the project clean.
 
-When it's time to ``python ./manage.py startapp <name>``, just move the generated
-module to ``apps``. If you want to know why this works, just take a look at the line::
+When it's time to ``python manage.py startapp <name>``, just move the generated
+module to ``apps``. 
+
+A handy createapp script has been created to help automate this.
+To create a new app, just run::
+
+    $ ./createapp.sh <appname>
+
+and the app will be created for you in the apps folder
+
+If you want to know why this works, just take a look at the line::
 
     sys.path.insert(0, root('apps'))
 

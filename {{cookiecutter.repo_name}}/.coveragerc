@@ -1,0 +1,9 @@
+[report]
+omit = */migrations/*
+
+[run]
+source = {{cookiecutter.repo_name}}.apps
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines = __unicode__
