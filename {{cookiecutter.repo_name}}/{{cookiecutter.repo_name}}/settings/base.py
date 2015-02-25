@@ -59,7 +59,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = '{{ cookiecutter.timezone }}'
 
 USE_I18N = False
 
