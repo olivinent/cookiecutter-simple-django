@@ -26,6 +26,13 @@ class TestHook(unittest.TestCase):
         self.assertTrue(exists(join(self.destpath, 'docs')))
         self.assertTrue(isdir(join(self.destpath, 'docs')))
 
+    def test_docs_folder_removed_if_docs_opted_out(self):
+        cookiecutter(
+            dirname(dirname(__file__)),
+            no_input=True,
+            extra_context={"with_documentation": "no"})
+
+        self.assertFalse(exists(join(self.destpath, 'docs')))
 
 if __name__ == '__main__':
     unittest.main()
