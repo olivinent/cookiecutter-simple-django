@@ -1,9 +1,0 @@
-[report]
-omit = */migrations/*
-
-[run]
-source = my-awesome-project.apps
-
-[report]
-# Regexes for lines to exclude from consideration
-exclude_lines = __unicode__

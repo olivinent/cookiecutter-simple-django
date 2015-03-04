@@ -1,2 +1,0 @@
-web: gunicorn --pythonpath="$PWD/my-awesome-project" wsgi:application --log-file -
-migrate: python manage.py migrate --settings=my-awesome-project.settings.production
