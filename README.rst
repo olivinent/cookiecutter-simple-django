@@ -39,7 +39,7 @@ This is even easier with virtualenvwrapper::
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/olivienent/cookiecutter-simple-django.git
+    $ cookiecutter  https://github.com/olivinent/cookiecutter-simple-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
