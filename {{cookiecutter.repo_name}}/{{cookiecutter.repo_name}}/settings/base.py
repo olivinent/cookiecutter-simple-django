@@ -1,11 +1,16 @@
 import sys
-from os.path import join, abspath, dirname
+from os.path import abspath, dirname, join
 
 
 # PATH vars
-here = lambda *x: join(abspath(dirname(__file__)), *x)
+def here(*args):
+    return join(abspath(dirname(__file__)), *args)
+
+
+def root(*args):
+    return join(abspath(PROJECT_ROOT), *args)
+
 PROJECT_ROOT = here("..")
-root = lambda *x: join(abspath(PROJECT_ROOT), *x)
 
 sys.path.insert(0, root('apps'))
 
@@ -59,7 +64,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = '{{ cookiecutter.timezone }}'
 
 USE_I18N = False
 
