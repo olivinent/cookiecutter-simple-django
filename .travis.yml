@@ -1,11 +1,12 @@
 language: python
-
 python:
-  - "2.7"
-  - "3.3"
-  - "3.4"
-# command to install dependencies
+- '2.7'
+- '3.3'
+- '3.4'
 install:
-  - pip install -r dev-requirements.txt
-# command to run tests
+- pip install -r dev-requirements.txt
 script: make all
+notifications:
+  email: false
+  slack:
+    secure: EYh7/38bVBxOAphJS+Tw62Xuznpd7gajqXkJTqBevX1EwHDZP6/JGbk79z9M8PJhciYyBWMT952J5+K7yFdjCqpffG6QXptKi7YXxppkPxz1hK/cK2IEwKh8DEeWWhIFpxykytLFPUgADJJKmXRYk/CkukC72mLnDPEhnbOSSn8=
