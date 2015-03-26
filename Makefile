@@ -1,3 +1,5 @@
+.PHONY: lint test all
+
 test:
 	py.test -q tests/*.py
 
