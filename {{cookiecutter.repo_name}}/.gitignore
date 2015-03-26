@@ -73,3 +73,6 @@ tramp
 # Windows
 Thumbs.db
 Desktop.ini
+
+# User-uploaded files
+{{cookiecutter.repo_name}}/uploads
