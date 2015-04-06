@@ -5,6 +5,6 @@
     "email": "Your email",
     "description": "A short description of the project.",
     "year": "2015",
+    "timezone": "UTC",
     "with_documentation": "yes",
-    "timezone": "UTC"
 }
