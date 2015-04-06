@@ -15,7 +15,7 @@ Description
 Lighter version of Daniel Greenfeld's 
 `cookiecutter-django <https://github.com/pydanny/cookiecutter-django>`_.
 
-Extended from Marco Fucci's fork.
+Extended from Marco Fucci's `fork <https://github.com/marcofucci/cookiecutter-simple-django>`_.
 
 It uses the latest stable versions and it only defines a skeleton which can be extended as needed.
 
