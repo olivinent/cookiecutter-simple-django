@@ -1,6 +1,10 @@
 cookiecutter-simple-django
 ==========================
 
+.. image:: https://travis-ci.org/olivinent/cookiecutter-simple-django.svg?branch=master
+    :target: https://travis-ci.org/olivinent/cookiecutter-simple-django
+
+
 A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
