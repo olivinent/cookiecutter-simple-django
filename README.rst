@@ -8,7 +8,8 @@ A cookiecutter_ template for Django.
 Description
 -----------
 
-Lighter version of the Daniel Greenfeld's cookiecutter-django.
+Lighter version of Daniel Greenfeld's 
+`cookiecutter-django <https://github.com/pydanny/cookiecutter-django>`_.
 
 Extended from Marco Fucci's fork.
 
@@ -39,16 +40,14 @@ This is even easier with virtualenvwrapper::
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/olivinent/cookiecutter-simple-django.git
+    $ cookiecutter  gh:olivinent/cookiecutter-simple-django
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
 
-**Warning**: After this point, change 'Marco Fucci', etc to your own information.
-
 It prompts you for questions. Answer them::
 
-    Cloning into 'cookiecutter-django'...
+    Cloning into 'cookiecutter-simple-django'...
     remote: Counting objects: 443, done.
     remote: Compressing objects: 100% (242/242), done.
     remote: Total 443 (delta 196), reused 419 (delta 176)
@@ -56,10 +55,11 @@ It prompts you for questions. Answer them::
     Resolving deltas: 100% (196/196), done.
     project_name (default is "My Awesome Project")? redditclone
     repo_name (default is "my-awesome-project")? redditclone
-    author_name (default is "Your Name")? Marco Fucci
+    author_name (default is "Your Name")? Your Name Here
     email (default is "Your email")? <your-email>
     description (default is "A short description of the project.")? A reddit clone
     year (default is "2015")? 2015
+    timezone (default is "UTC")? UTC
     with_documentation (default is "yes")? yes
 
 If you are using cookiecutter < 0.7 and you answered *no* to *with_documentation*, you might want to delete the ``docs`` 
@@ -87,8 +87,8 @@ Create a GitHub repo and push it there::
     $ git push -u origin master
 
 **Note**: The ``requirements`` files don't define any package versions because it makes
-more sense for you to use the latest ones when you set up your
-project. After that point though, you really want to take note of the specific
+more sense for you to use the latest ones when you set up your project.
+After that point though, you really want to take note of the specific
 versions installed so that they are not going to get updated without you knowing it.
 
 In order to do this, just activate your virtual environment, pip freeze it and
@@ -121,15 +121,18 @@ If you take a look at ``base.py``, you'll see that it includes the optional modu
 The ``apps`` folder should contain all your local django apps, this is to keep
 the structure of the project clean.
 
-When it's time to ``python manage.py startapp <name>``, just move the generated
-module to ``apps``. 
+Instead of running ``python manage.py startapp <name>``, and having to move the generated
+module to ``apps`` manually, we have included a handy Makefile to help you automate this.
 
-A handy createapp script has been created to help automate this.
 To create a new app, just run::
 
-    $ ./createapp.sh <appname>
+    $ make app <appname>
 
-and the app will be created for you in the apps folder
+This also works if you want to create multiple apps at once. To do this you would run::
+
+    $ make app <app1> <app2>
+
+and the app(s) will be created for you in the ``apps`` folder
 
 If you want to know why this works, just take a look at the line::
 
@@ -167,5 +170,4 @@ If you do rename your fork, I encourage you to submit it to the following places
 Or Submit a Pull Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-I also accept pull requests on this, if they're small, atomic, and if they make my own project development
-experience better.
+We also accept pull requests on this, if they're small, atomic, and if they make out own project development experience better.
