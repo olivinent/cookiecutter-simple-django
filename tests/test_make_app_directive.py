@@ -25,8 +25,8 @@ class TestAppCreation(unittest.TestCase):
         with work_in(self.destpath):
             assert subprocess.call(["make", "app", "testing"]) == 0
 
-        assert make_sure_path_exists(
-            join(self.destpath, 'my-awesome-project', 'apps', 'testing')) == True
+        self.assertTrue(make_sure_path_exists(
+            join(self.destpath, 'my-awesome-project', 'apps', 'testing')))
 
     def test_make_app_command_can_create_multiple_apps(self):
         with work_in(self.destpath):
@@ -36,4 +36,4 @@ class TestAppCreation(unittest.TestCase):
                  for path in ['one', 'two', 'three']]
 
         for path in paths:
-            assert make_sure_path_exists(path) == True
+            self.assertTrue(make_sure_path_exists(path))
