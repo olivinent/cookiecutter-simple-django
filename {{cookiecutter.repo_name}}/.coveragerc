@@ -2,7 +2,7 @@
 omit = */migrations/*
 
 [run]
-source = {{cookiecutter.repo_name}}.apps
+source = {{cookiecutter.repo_name}}/apps
 
 [report]
 # Regexes for lines to exclude from consideration
