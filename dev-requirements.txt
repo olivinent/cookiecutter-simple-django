@@ -1,4 +1,3 @@
 cookiecutter
-Django
 pep8
 pytest
